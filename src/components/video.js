@@ -16,7 +16,7 @@ const Video = ({token}) =>{
 
                 //Attach video for all remote participants
                 const addParticipant = participant =>{
-                    participant.tracks.foreach(publication =>{
+                    participant.tracks.forEach(publication =>{
                         if(publication.isSubscribed){
                             const track = publication.track
                             remoteVidRef.current.appendChild(track.attach())
@@ -25,21 +25,22 @@ const Video = ({token}) =>{
 
                     participant.on("trackSubscribed", track =>{
                         remoteVidRef.current.appendChild(track.attach())
-                    })
+                    }) 
                 }
 
                 result.participants.forEach(addParticipant)
                 result.on("ParticipantConnected", addParticipant)
-            }
-        )
+            })
     },[token])
 
     return(
         <div>
+            <h2>Local Participant</h2>
             <div ref={localVidRef} />
+            <h2>Remote Participant</h2>
             <div ref={remoteVidRef} />
         </div>
     )
 }
 
-export default Video
+export default Video;

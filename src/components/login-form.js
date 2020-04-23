@@ -30,4 +30,4 @@ const LoginForm = ({storeToken}) =>{
     )
 }
 
-export default LoginForm
+export default LoginForm;
