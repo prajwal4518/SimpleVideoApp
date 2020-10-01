@@ -11,7 +11,7 @@ const IndexPage = () => {
 const [token, setToken] = useState(false);
 return(
   <Layout>
-    <SEO title="Home" />
+    <SEO title="Home Page" />
     {!token ? <LoginForm storeToken = {setToken} /> : <Video token = {token} />}
   </Layout>
 )
